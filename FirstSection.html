@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Section Single File</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f0f0;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            width: 80%;
+            max-width: 1200px;
+            background-color: #e6e6fa; /* Light purple color from your image */
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            /* No overflow hidden here if text is to wrap and animate */
+            /* Removed overflow: hidden; from .container */
+        }
+
+        .text-content {
+            flex: 1;
+            padding-right: 30px;
+            /* Removed position: relative; and overflow: hidden; from .text-content */
+        }
+
+        .text-content p {
+            font-size: 1.5em;
+            color: #333;
+            font-weight: bold;
+            margin: 0;
+            /* Removed white-space: nowrap; */
+            position: relative;
+            opacity: 0; /* Start invisible */
+            transform: translateX(50px); /* Start slightly to the right */
+            animation: fadeInSlideText 2s forwards ease-out; /* New animation */
+            animation-delay: 0.5s; /* Delay for effect */
+        }
+
+        .divider {
+            width: 1px;
+            background-color: #ccc;
+            height: 150px; /* Adjust as needed */
+            margin: 0 30px;
+            align-self: stretch; /* Make divider stretch to container height */
+        }
+
+        .image-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .image-content img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 4px;
+            transition: transform 0.3s ease-in-out; /* Smooth transition for pop effect */
+        }
+
+        .image-content img:hover {
+            transform: scale(1.05); /* Pop effect on hover */
+        }
+
+        /* New Keyframe animation for text fading in and sliding slightly from right */
+        @keyframes fadeInSlideText {
+            0% {
+                transform: translateX(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-content">
+            <p>We are dedicated to providing you with exceptional educational experiences and personalized support throughout your learning journey.</p>
+        </div>
+        <div class="divider"></div>
+        <div class="image-content">
+            <img src="your-image-url.jpg" alt="Student studying in a library">
+        </div>
+    </div>
+</body>
+</html>
